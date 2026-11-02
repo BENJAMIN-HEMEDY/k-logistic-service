@@ -459,3 +459,177 @@ footer {
     outline: 3px solid #123456;
     outline-offset: 4px;
 }
+
+/* PHASE 2 : Navigation professionnelle */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 4px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #25D366;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a.active {
+    color: #51d49a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    nav a,
+    nav a::after {
+        transition: none;
+    }
+}
+
+/* PHASE 2 : Accueil moderne */
+
+.hero {
+    min-height: 75vh;
+    padding: 100px 8%;
+    background: linear-gradient(
+        135deg,
+        #0a2138 0%,
+        #123456 50%,
+        #21628d 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: heroFade 1s ease-out both;
+}
+
+.hero-label {
+    display: block;
+    color: #6ce2ae;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #e1ebf4;
+    line-height: 1.8;
+    margin: 0 auto 35px;
+}
+
+.hero .btn {
+    padding: 16px 32px;
+    border-radius: 30px;
+    transition: transform 0.3s,
+                background-color 0.3s;
+}
+
+.hero .btn:hover {
+    transform: translateY(-4px);
+    background-color: #10794e;
+}
+
+@keyframes heroFade {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content {
+        animation: none;
+    }
+}
+
+/* Disposition des cinq catégories */
+
+.services-container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Trois catégories de produits */
+
+.products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+}
+
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Deux boutons WhatsApp */
+
+.contact-card .whatsapp-btn {
+    display: inline-block;
+    min-width: 180px;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.contact-card h3 {
+    color: #123456;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.contact-card a:not(.whatsapp-btn) {
+    font-weight: bold;
+}
